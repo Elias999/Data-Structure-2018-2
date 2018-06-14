@@ -54,7 +54,7 @@ class BinarySearchTree{
         }
 };
 
-int BinarySearchTree::depth(tree_node* node)
+int BinarySearchTree::max_depth(tree_node* node)
 {
 	int l_depth;
 	int r_depth;
@@ -65,8 +65,8 @@ int BinarySearchTree::depth(tree_node* node)
 	else
 	{
 		//υπολογισμός του βάθους κάθε υποδέντρου
-		l_depth = depth(node->left);
-		r_depth = depth(node->right);
+		l_depth = max_depth(node->left);
+		r_depth = max_depth(node->right);
 		//επιλέγεται το υποδέντρο με το μεγαλύτερο βάθος
 		return 1+max(l_depth,r_depth);
 	}
