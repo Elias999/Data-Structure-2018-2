@@ -20,9 +20,11 @@ class BinarySearchTree{
         int sum_items=0;
 
     public:
+
         BinarySearchTree(){
            root = NULL;
         }
+	int depth(tree_node*);
 
         bool isEmpty() const { return root==NULL; }
 
@@ -51,6 +53,27 @@ class BinarySearchTree{
           return max(FindHeight(root->left),FindHeight(root->right)) +1;
         }
 };
+
+int BinarySearchTree::depth(tree_node* node)
+{
+	int l_depth;
+	int r_depth;
+	if (node == NULL)
+	{
+		return 0;
+	}
+	else
+	{
+		//υπολογισμός του βάθους κάθε υποδέντρου
+		l_depth = depth(node->left);
+		r_depth = depth(node->right);
+		//επιλέγεται το υποδέντρο με το μεγαλύτερο βάθος
+		return 1+max(l_depth,r_depth);
+	}
+}
+
+
+
 
 // Smaller elements go left
 // larger elements go right
